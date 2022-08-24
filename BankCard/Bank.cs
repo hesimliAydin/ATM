@@ -43,5 +43,16 @@ namespace BankCard
             }
             return null;
         }
+
+        public bool CardToCard(string pan)
+        {
+            foreach (var client in Clients)
+            {
+                if (client.Bankcard.PAN == pan)
+                    return true;
+            }
+            Console.WriteLine("PAN is wrong");
+            return false;
+        }
     }
 }

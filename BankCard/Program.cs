@@ -106,6 +106,32 @@ namespace BankCard
                         int money = int.Parse(Console.ReadLine());
                         kapital.Expense(money, pin);
                     }
+                    else if(choice == 4)
+                    {
+                        Console.Clear();
+                        Console.Write("Recipent: ");
+                        string pan=Console.ReadLine();
+                        var recipent = kapital.CardToCard(pan);
+                        if (recipent)
+                        {
+                            Console.Write("Acceptor: ");
+                            string pan2 = Console.ReadLine();
+                            var acceptor=kapital.CardToCard(pan2);
+                            if (acceptor)
+                            {
+                                Console.WriteLine("Enter money: ");
+                                int money=int.Parse(Console.ReadLine());
+                                if (money > 0&& money<=client.Bankcard.Balance)
+                                {
+                                    client.Bankcard.Balance-=money;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("there is not enough money or wrong input");
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
